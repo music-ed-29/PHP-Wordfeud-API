@@ -1,0 +1,34 @@
+PHP API for Wordfeud
+
+Sample usage:
+
+<?php
+$W = new Wordfeud();
+
+$username = 'grammarnazi';
+$email = 'words@books.com';
+$pass = 'iseedeadletters';
+
+$W->CreateAccount($username, $email, $password);
+$W->Login($email, $password);
+
+$status = $W->GetStatus();
+
+foreach ($status->games as $game)
+{
+	$gameID = $game->id;
+	$gameinfo = $W->GetGame($gameID);
+	$gametiles = $gameinfo->tiles;
+
+	// "WORD" to the right from the middle
+	// This must be way easier to do.
+	$tiles = array(
+		array(7, 7, 'W', FALSE),
+		array(8, 7, 'O', FALSE),
+		array(9, 7, 'R', FALSE),
+		array(10, 7, 'D', FALSE),
+	);
+	$words = array('WORD');
+
+	$W->Place($gameID, $gameinfo->ruleset, $tiles, $words);
+}
