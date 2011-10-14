@@ -10,7 +10,7 @@ Example
 <?php
 require_once("Wordfeud.php");
 
-$WF = new Wordfeud(null, true, true);
+$WF = new Wordfeud();
 
 try {
     // Log in with an existing account
@@ -28,7 +28,7 @@ try {
         echo "Found a user called <b>" . $usr['username'] . "</b> ";
         echo "(user id: " . $usr['user_id'] . ").<br />";
     } else {
-        echo "User found!<br />";
+        echo "User not found!<br />";
     }
 
     // Request game with a random opponent
@@ -54,4 +54,4 @@ catch (WordfeudException $ex) {
 }
 ```
 
-Please see the PHPdoc for more information.
+*Please see the PHPdoc for more information.*
