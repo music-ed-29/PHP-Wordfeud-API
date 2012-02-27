@@ -9,12 +9,17 @@ Example
 ```php
 <?php
 require_once("Wordfeud.php");
+//Change this lines to the email and password you want
+define("TEST_EMAIL","some_email@some_server.com");
+define ("TESTPASSWORD","RAnd0mjunK");
+//
+DEFINE ("HTML_EOL","<br />".PHP_EOL);
 
 $WF = new Wordfeud();
 
 try {
     // Log in with an existing account
-    $WF->logInUsingEmail("TEST EMAIL", "TEST PASSWORD");
+    $WF->logInUsingEmail(TEST_EMAIL, TEST_PASSWORD);
 
     // Show your Wordfeud Session ID
     echo "Session ID: " . $WF->getSessionId() . "<br />";
@@ -32,10 +37,15 @@ try {
     }
 
     // Request game with a random opponent
+    /*
+    * Don't activate these lines if you don't want to play random games
+    * They will do real requests
+    */
     $request = $WF->inviteRandomOpponent(Wordfeud::RuleSetDutch, Wordfeud::BoardRandom);
     echo "Request sent!<br /><pre>";
     var_dump($request);
     echo "</pre>";
+    */
 
     // Log out (not really necessary)
     $WF->logOut();
