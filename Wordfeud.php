@@ -294,7 +294,7 @@ class Wordfeud
         if ($res["status"] != "success") {
             throw new WordfeudException($res["content"]["type"]);
         } else {
-            return $res["content"]->messages;
+            return $res["content"]["messages"];
         }
     }
 
