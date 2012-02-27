@@ -38,9 +38,9 @@ try {
 
     // Request game with a random opponent
     /*
-    * Don't activate these lines if you don't want to play random games
-    * They will do real requests
-    *
+     * Don't activate these lines if you don't want to play random games
+     * They will do real requests!!
+     *
     $request = $WF->inviteRandomOpponent(Wordfeud::RuleSetDutch, Wordfeud::BoardRandom);
     echo "Request sent!<br /><pre>";
     var_dump($request);
